@@ -43,6 +43,8 @@ func (d *Deck) PrintDeck() {
 
 // ShuffleDeck merges the dealt cards back in (if necessary) and shuffles
 func (d *Deck) ShuffleDeck() {
+	// rand.Seed(time.Now().UTC().UnixNano())
+
 	d.cards = append(d.cards, d.dealt...)
 
 	rand.Shuffle(len(d.cards), func(i, j int) {

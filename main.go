@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+
 	ranks := []string{"ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king"}
 	suits := []string{"spades", "hearts", "clubs", "diamonds"}
 
