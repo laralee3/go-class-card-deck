@@ -18,7 +18,7 @@ func (c Card) Validate() error {
 	if c.rank == "" {
 		return errors.New("rank must not be empty")
 	}
-	if c.suit <= "" {
+	if c.suit == "" {
 		return errors.New("suit must not be empty")
 	}
 	return nil
