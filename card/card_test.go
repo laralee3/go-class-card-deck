@@ -11,7 +11,7 @@ func TestCardStructCreationSuccess(t *testing.T) {
 		t.Error("failed to create a Card with expected suit and rank")
 	}
 
-	err := newCardStruct.Validate()
+	err := newCardStruct.validate()
 	if err != nil {
 		t.Errorf("Card validation failed: %v", err)
 	}
@@ -28,7 +28,7 @@ func TestCardCreationSuccess(t *testing.T) {
 		t.Error("CardName() failed to return expected name")
 	}
 
-	err := newCardGenerated.Validate()
+	err := newCardGenerated.validate()
 	if err != nil {
 		t.Errorf("Card validation failed: %v", err)
 	}
@@ -37,14 +37,14 @@ func TestCardCreationSuccess(t *testing.T) {
 func TestCardValidateErrorSuccess(t *testing.T) {
 	newCardNoRank := Card{suit: "spades"}
 
-	errNoRank := newCardNoRank.Validate()
+	errNoRank := newCardNoRank.validate()
 	if errNoRank == nil {
 		t.Error("Card validation failed to find missing rank")
 	}
 
 	newCardNoSuit := Card{rank: "two"}
 
-	errNoSuit := newCardNoSuit.Validate()
+	errNoSuit := newCardNoSuit.validate()
 	if errNoSuit == nil {
 		t.Error("Card validation failed to find missing suit")
 	}
@@ -53,7 +53,7 @@ func TestCardValidateErrorSuccess(t *testing.T) {
 func TestCardCreationFail(t *testing.T) {
 	newCard := GenerateCard("two", "spades")
 
-	err := newCard.Validate()
+	err := newCard.validate()
 	if err == nil {
 		t.Error("Card validation failed to find problems")
 	}
