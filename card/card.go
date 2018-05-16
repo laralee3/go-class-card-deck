@@ -9,12 +9,12 @@ type Card struct {
 }
 
 // CardName returns the name of the card
-func (c Card) CardName() string {
+func (c *Card) CardName() string {
 	return c.rank + " of " + c.suit
 }
 
 // Validate card struct
-func (c Card) Validate() error {
+func (c *Card) validate() error {
 	if c.rank == "" {
 		return errors.New("rank must not be empty")
 	}
